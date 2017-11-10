@@ -38,9 +38,10 @@ public class SimpleControls extends Activity {
 
 	private Button connectBtn = null;
 	private TextView rssiValue = null;
-	private TextView AnalogInValue = null;
-	private ToggleButton digitalOutBtn, digitalInBtn, AnalogInBtn;
-	private SeekBar servoSeekBar, PWMSeekBar;
+	//private TextView AnalogInValue = null;
+	private ToggleButton digitalOutBtn;
+	//private ToggleButton digitalOutBtn, digitalInBtn, AnalogInBtn;
+	//private SeekBar servoSeekBar, PWMSeekBar;
 
 	private BluetoothGattCharacteristic characteristicTx = null;
 	private RBLService mBluetoothLeService;
@@ -96,7 +97,7 @@ public class SimpleControls extends Activity {
 			} else if (RBLService.ACTION_DATA_AVAILABLE.equals(action)) {
 				data = intent.getByteArrayExtra(RBLService.EXTRA_DATA);
 
-				readAnalogInValue(data);
+				//readAnalogInValue(data);
 			} else if (RBLService.ACTION_GATT_RSSI.equals(action)) {
 				displayData(intent.getStringExtra(RBLService.EXTRA_DATA));
 			}
@@ -113,9 +114,9 @@ public class SimpleControls extends Activity {
 
 		rssiValue = (TextView) findViewById(R.id.rssiValue);
 
-		AnalogInValue = (TextView) findViewById(R.id.AIText);
+		//AnalogInValue = (TextView) findViewById(R.id.AIText);
 
-		digitalInBtn = (ToggleButton) findViewById(R.id.DIntBtn);
+		//digitalInBtn = (ToggleButton) findViewById(R.id.DIntBtn);
 
 		connectBtn = (Button) findViewById(R.id.connect);
 		connectBtn.setOnClickListener(new OnClickListener() {
@@ -179,7 +180,7 @@ public class SimpleControls extends Activity {
 				mBluetoothLeService.writeCharacteristic(characteristicTx);
 			}
 		});
-
+/*
 		AnalogInBtn = (ToggleButton) findViewById(R.id.AnalogInBtn);
 		AnalogInBtn.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
@@ -197,7 +198,8 @@ public class SimpleControls extends Activity {
 				mBluetoothLeService.writeCharacteristic(characteristicTx);
 			}
 		});
-
+*/
+/*
 		servoSeekBar = (SeekBar) findViewById(R.id.ServoSeekBar);
 		servoSeekBar.setEnabled(false);
 		servoSeekBar.setMax(180);
@@ -224,7 +226,8 @@ public class SimpleControls extends Activity {
 				mBluetoothLeService.writeCharacteristic(characteristicTx);
 			}
 		});
-
+*/
+/*
 		PWMSeekBar = (SeekBar) findViewById(R.id.PWMSeekBar);
 		PWMSeekBar.setEnabled(false);
 		PWMSeekBar.setMax(255);
@@ -251,7 +254,7 @@ public class SimpleControls extends Activity {
 				mBluetoothLeService.writeCharacteristic(characteristicTx);
 			}
 		});
-
+*/
 		if (!getPackageManager().hasSystemFeature(
 				PackageManager.FEATURE_BLUETOOTH_LE)) {
 			Toast.makeText(this, "Ble not supported", Toast.LENGTH_SHORT)
@@ -291,7 +294,7 @@ public class SimpleControls extends Activity {
 			rssiValue.setText(data);
 		}
 	}
-
+/*
 	private void readAnalogInValue(byte[] data) {
 		for (int i = 0; i < data.length; i += 3) {
 			if (data[i] == 0x0A) {
@@ -309,15 +312,15 @@ public class SimpleControls extends Activity {
 			}
 		}
 	}
-
+*/
 	private void setButtonEnable() {
 		flag = true;
 		connState = true;
 
 		digitalOutBtn.setEnabled(flag);
-		AnalogInBtn.setEnabled(flag);
-		servoSeekBar.setEnabled(flag);
-		PWMSeekBar.setEnabled(flag);
+		//AnalogInBtn.setEnabled(flag);
+		//servoSeekBar.setEnabled(flag);
+		//PWMSeekBar.setEnabled(flag);
 		connectBtn.setText("Disconnect");
 	}
 
@@ -326,9 +329,9 @@ public class SimpleControls extends Activity {
 		connState = false;
 
 		digitalOutBtn.setEnabled(flag);
-		AnalogInBtn.setEnabled(flag);
-		servoSeekBar.setEnabled(flag);
-		PWMSeekBar.setEnabled(flag);
+		//AnalogInBtn.setEnabled(flag);
+		//servoSeekBar.setEnabled(flag);
+		//PWMSeekBar.setEnabled(flag);
 		connectBtn.setText("Connect");
 	}
 

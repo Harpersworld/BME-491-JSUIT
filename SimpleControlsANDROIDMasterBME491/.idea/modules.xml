@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SimpleControls.iml" filepath="$PROJECT_DIR$/SimpleControls.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SimpleControlsANDROIDMasterBME491.iml" filepath="$PROJECT_DIR$/SimpleControlsANDROIDMasterBME491.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>
-
